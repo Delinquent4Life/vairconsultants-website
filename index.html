@@ -836,8 +836,8 @@ footer a.fb{display:inline-flex;align-items:center;gap:8px;margin-top:6px;color:
 const UPLOAD_LINK = "";
 
 const POSTS = [
-  { date:"2026-09-24", tag:"Office news", title:"Our new website is live", image:"",
-    text:"You can now send us documents online through the Client Portal, day or night. Updates on deadlines and government changes will be posted here." },
+  { date:"2026-09-28", tag:"Office news", title:"Introducing the new vairconsultants.com", image:"",
+    text:"For two decades, V.A.I.R Consultants has guided enterprises through every requirement of establishing and operating in Sint Maarten. Our new website now brings that experience online.\n\nClients can submit documents securely through the Client Portal at any hour, book a complimentary consultation, and follow News & Events for government notices, filing deadlines and developments affecting business on the island.\n\nWe have also formalised a service many of you already rely on: Business Plans & Tenders, covering investor-ready business plans and complete, compliant bid submissions for public and private tenders.\n\nWe welcome your feedback, and look forward to serving you." },
   { date:"2026-09-24", tag:"Tip", title:"Sending documents? Name each file",
     text:"Put your company name and what the document is in the file name, for example “Harbor Supplies – bank statement August”. It lets us file everything in the right place the same day." },
   { date:"2026-09-24", tag:"Tip", title:"Tell us when your details change",
@@ -879,7 +879,9 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 const slug = p => p.date + "-" + p.title.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const TAGC = {"Event":"var(--c2)","Government notice":"var(--c3)","Deadline":"var(--c3)","Office news":"var(--c1)","Tip":"var(--c4)"};
 const tc = p => TAGC[p.tag] || "var(--c1)";
-const sorted = [...POSTS].sort((a,b)=> b.date.localeCompare(a.date));
+/* posts dated in the future stay hidden until that day (Sint Maarten time) */
+const TODAY = new Intl.DateTimeFormat("en-CA",{timeZone:"America/Lower_Princes"}).format(new Date());
+const sorted = POSTS.filter(p => p.date <= TODAY).sort((a,b)=> b.date.localeCompare(a.date));
 function card(p, feature){
   const ph = p.image ? `<img src="${esc(p.image)}" alt="" loading="lazy">` : `<span class="ring"></span><span class="ring2"></span><b>${esc(p.tag||"News")}</b>`;
   return `<a class="card-post${feature?" feature":""}" style="--tc:${tc(p)}" href="#/news/${slug(p)}"><div class="ph">${ph}</div><div class="bd"><time datetime="${p.date}">${fmt(p.date)}${p.tag&&p.image?" · "+esc(p.tag):""}</time><h3>${esc(p.title)}</h3><p>${esc(p.text.split(/\n\n/)[0])}</p></div></a>`;
