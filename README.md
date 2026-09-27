@@ -6,3 +6,5 @@ Published automatically by Netlify whenever this repository changes.
 
 - `index.html` — the whole site (pages, text, news posts, styles)
 - `logo.png` — logo, also used in email signatures (https://vairconsultants.com/logo.png)
+
+Last published by Claude: 2026-09-27
