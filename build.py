@@ -16,7 +16,7 @@ routes = json.load(open(os.path.join(ROOT, "routes.json"), encoding="utf-8"))
 src = open(src_path, encoding="utf-8").read()
 
 # keep the route table inside index.html in step with routes.json
-table = json.dumps([{k: x[k] for k in ("r", "p", "t", "d")} for x in routes], ensure_ascii=False)
+table = json.dumps([{k: x[k] for k in ("r", "p", "t", "d", "from") if k in x} for x in routes], ensure_ascii=False)
 src = re.sub(r'(<script id="routes" type="application/json">).*?(</script>)',
              lambda m: m.group(1) + table.replace("</", "<\\/") + m.group(2), src, count=1, flags=re.S)
 
@@ -34,8 +34,8 @@ def set_head(page, title, desc, url, og_type="website"):
 def show(page, route):
     """Mark the right section visible in the file itself, so it shows even before the script runs."""
     return re.sub(
-        r'<div class="page([^"]*)" data-page="' + re.escape(route) + '">',
-        lambda m: '<div class="page' + m.group(1) + ' on" data-page="' + route + '">', page, count=1)
+        r'<div class="page([^"]*)" data-page="' + re.escape(route) + '"',
+        lambda m: '<div class="page' + m.group(1) + ' on" data-page="' + route + '"', page, count=1)
 
 def write(path, page):
     d = os.path.join(ROOT, path.strip("/"))
@@ -52,13 +52,13 @@ src = set_head(src, home["t"], home["d"], SITE + "/")
 open(src_path, "w", encoding="utf-8").write(src)
 urls.append(SITE + "/")
 
+today = datetime.datetime.now(ZoneInfo("America/Lower_Princes")).date().isoformat()
 for x in routes:
-    if x["r"] == "": continue
+    if x["r"] == "" or x.get("from", "") > today: continue   # pages with a future "from" date stay off the site
     write(x["p"], show(set_head(src, x["t"], x["d"], SITE + x["p"]), x["r"]))
     generated.append(x["p"].strip("/").split("/")[0]); urls.append(SITE + x["p"])
 
 # news posts that are already published (Sint Maarten date)
-today = datetime.datetime.now(ZoneInfo("America/Lower_Princes")).date().isoformat()
 block = re.search(r"const POSTS = \[(.*?)\n\];", src, re.S).group(1)
 for m in re.finditer(r'date:\s*"(\d{4}-\d{2}-\d{2})".*?title:\s*"((?:[^"\\]|\\.)*)".*?text:\s*"((?:[^"\\]|\\.)*)"', block, re.S):
     date, title, text = m.group(1), json.loads('"' + m.group(2) + '"'), json.loads('"' + m.group(3) + '"')
