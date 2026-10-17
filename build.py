@@ -60,10 +60,10 @@ for x in routes:
 
 # news posts that are already published (Sint Maarten date)
 block = re.search(r"const POSTS = \[(.*?)\n\];", src, re.S).group(1)
-for m in re.finditer(r'date:\s*"(\d{4}-\d{2}-\d{2})".*?title:\s*"((?:[^"\\]|\\.)*)".*?text:\s*"((?:[^"\\]|\\.)*)"', block, re.S):
+for m in re.finditer(r'date:\s*"(\d{4}-\d{2}-\d{2})".*?title:\s*"((?:[^"\\]|\\.)*)".*?text:\s*"((?:[^"\\]|\\.)*)"(?:,\s*id:\s*"([^"]*)")?', block, re.S):
     date, title, text = m.group(1), json.loads('"' + m.group(2) + '"'), json.loads('"' + m.group(3) + '"')
     if date > today: continue
-    slug = date + "-" + re.sub(r"^-|-$", "", re.sub(r"[^a-z0-9]+", "-", title.lower()))
+    slug = m.group(4) or (date + "-" + re.sub(r"^-|-$", "", re.sub(r"[^a-z0-9]+", "-", title.lower())))
     desc = text.split("\n\n")[0]
     desc = desc if len(desc) <= 160 else desc[:157].rsplit(" ", 1)[0] + "…"
     page = set_head(src, title + " | V.A.I.R Consultants", desc, SITE + "/news/" + slug + "/", "article")
