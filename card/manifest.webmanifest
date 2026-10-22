@@ -1,0 +1,14 @@
+{
+  "name": "VAIR Card",
+  "short_name": "VAIR Card",
+  "description": "V.A.I.R Consultants B.V. - QR code and contact details",
+  "start_url": "/card/",
+  "scope": "/card/",
+  "display": "standalone",
+  "background_color": "#F3EEF4",
+  "theme_color": "#52275C",
+  "icons": [
+    {"src": "/card/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/card/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VAIR Card</title>
+<link rel="apple-touch-icon" href="/card/icon-180.png">
+<link rel="manifest" href="/card/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#52275C">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-title" content="VAIR Card">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one phone screen — the QR on a white card is the hero, contacts and services underneath */
+:root{
+  --bg:#F3EEF4; --fg:#2B1830; --muted:#6B5870; --plum:#52275C; --teal:#0E8F83; --card:#FFFFFF; --line:#E2D7E5;
+  --display:"Alegreya", Georgia, "Times New Roman", serif;
+  --body:"Public Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#1C1220;--fg:#F2E9F4;--muted:#BBA8C0;--plum:#D9B7E2;--teal:#5FCFC2;--card:#FFFFFF;--line:#3A2A40;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1C1220;--fg:#F2E9F4;--muted:#BBA8C0;--plum:#D9B7E2;--teal:#5FCFC2;--card:#FFFFFF;--line:#3A2A40;color-scheme:dark}
+html,body{background:var(--bg)}
+*{box-sizing:border-box}
+body{margin:0;padding-top:max(20px,env(safe-area-inset-top,0px));color:var(--fg);font:400 1rem/1.5 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 28px}
+main{max-width:30rem;margin:0 auto;display:grid;gap:20px}
+h1{font:700 1.6rem/1.15 var(--display);color:var(--plum);margin:0;text-wrap:balance}
+.lede{margin:4px 0 0;color:var(--muted);font-size:.95rem}
+.qr{background:var(--card);border-radius:18px;padding:14px;box-shadow:0 10px 30px rgba(43,24,48,.12)}
+.qr img{display:block;width:100%;height:auto;border-radius:8px}
+.scan{margin:0;text-align:center;color:var(--muted);font-size:.9rem}
+.rows{display:grid;gap:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:5.6rem 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.row small{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.row b{font-weight:600;min-width:0;overflow-wrap:anywhere;user-select:all}
+button{font:600 .8rem var(--body);color:var(--teal);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+h2{font:600 1.05rem var(--display);color:var(--plum);margin:0}
+ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+li a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--line)}
+li a:hover{color:var(--teal)}
+.foot{color:var(--muted);font-size:.8rem;margin:0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>V.A.I.R Consultants B.V.</h1>
+    <p class="lede">Permits, company administration and bookkeeping in Sint Maarten.</p>
+  </header>
+  <div class="qr"><img src="/card/qr.png" alt="QR code that opens vairconsultants.com/contact"></div>
+  <p class="scan">Point your phone camera at the code to open our website.</p>
+  <section class="rows" aria-label="Contact">
+    <div class="row"><small>WhatsApp</small><b>+1 721-580-0054</b><button data-copy="+1 721-580-0054">Copy</button></div>
+    <div class="row"><small>Email</small><b>info@vairconsultants.com</b><button data-copy="info@vairconsultants.com">Copy</button></div>
+    <div class="row"><small>Website</small><b>vairconsultants.com</b><button data-copy="https://vairconsultants.com">Copy</button></div>
+    <div class="row"><small>Office</small><b>The Plaza Building, Unit 1, W. G. Buncamper Road #4, Philipsburg</b><span></span></div>
+  </section>
+  <section>
+    <h2>What we do</h2>
+    <ul>
+      <li><a href="https://vairconsultants.com/work-residence-permits-sint-maarten/">Work and residence permits</a></li>
+      <li><a href="https://vairconsultants.com/company-formation-sint-maarten/">Company formation and Chamber of Commerce</a></li>
+      <li><a href="https://vairconsultants.com/bookkeeping-payroll-tax-filing/">Bookkeeping, payroll and monthly tax filings</a></li>
+      <li><a href="https://vairconsultants.com/building-permits-government-liaison/">Building permits, Tax Office and SZV matters</a></li>
+      <li><a href="https://vairconsultants.com/business-plans-tenders/">Business plans and tenders</a></li>
+    </ul>
+  </section>
+  <p class="foot">Consultations and quotations are complimentary.</p>
+</main>
+<script>
+document.querySelectorAll('button[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+  const t=b.dataset.copy, done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)};
+  try{navigator.clipboard.writeText(t).then(done,()=>sel(b))}catch(e){sel(b)}
+}));
+function sel(b){const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r)}
+let lock=null;async function keepOn(){try{lock=await navigator.wakeLock?.request('screen')}catch(e){}}
+keepOn();document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')keepOn()});
+</script>
+
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/card/sw.js",{scope:"/card/"}).catch(()=>{})}</script>
+</body>
+</html>
