@@ -53,6 +53,7 @@ p{margin:0}
 .kicker{font:700 .78rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:block}
 .lead{font-size:1.18rem;color:var(--muted);max-width:36em}
 p,li,dd,blockquote,.just{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+.nojust{text-align:left!important;-webkit-hyphens:manual;hyphens:manual}
 .muted{color:var(--muted)}
 section{padding:92px 0}
 .soft{background:var(--bg-soft)}
@@ -1133,6 +1134,18 @@ document.addEventListener("click", e => {
 });
 document.getElementById("yr").textContent = new Date().getFullYear();
 route();
+</script>
+<script>
+/* Justified text, except narrow boxes and short lines (Bernard 29 Oct 2026) - VAIR Website */
+(function(){try{
+  var MINW=300, MINLEN=60;
+  function check(el){var w=el.clientWidth; if(!w) return; var t=(el.textContent||'').trim().length;
+    el.classList.toggle('nojust', w<MINW || t<MINLEN);}
+  var els=document.querySelectorAll('p,li,dd,blockquote');
+  if('ResizeObserver' in window){var ro=new ResizeObserver(function(es){es.forEach(function(e){check(e.target)})});
+    els.forEach(function(el){ro.observe(el)});}
+  else{var all=function(){els.forEach(check)}; all(); addEventListener('resize',all);}
+}catch(e){}})();
 </script>
 </body>
 </html>
