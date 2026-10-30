@@ -249,6 +249,30 @@ nav.main a[aria-current="page"]{border-bottom-color:var(--teal);color:var(--teal
 /* ---------- updates ---------- */
 .filters{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 10px}
 .updates{border-top:2px solid var(--plum)}
+.bring{margin-top:44px}
+.bring h2{font-size:1.6rem;margin-bottom:6px}
+.bring details{margin-top:14px;border:1px solid var(--line);border-radius:18px;background:var(--card);padding:6px 22px 18px}
+.bring summary{cursor:pointer;font-weight:700;padding:14px 0;color:var(--pc,var(--plum))}
+.bring h4{margin:16px 0 6px;color:var(--teal)}
+.bring ol{margin:0;padding-left:22px}
+.bring li{margin:0 0 10px}
+.bring li b{display:block;font-weight:600}
+.bring li span{display:block;color:var(--muted);font-size:.92rem;text-align:justify}
+.soon{margin:28px 0 6px;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.soon h2{font-size:1.05rem;margin-bottom:10px}
+.soon a{display:grid;grid-template-columns:190px 1fr;gap:14px;padding:9px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.soon a:first-child{border-top:0}
+.soon a:hover span{text-decoration:underline}
+.soon time{color:var(--clay);font-weight:600}
+.govch{margin-top:56px}
+.govch h2{font-size:1.6rem;margin-bottom:6px}
+.gi{padding:20px 0;border-bottom:1px solid var(--line)}
+.gh{display:flex;gap:12px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.gh h3{font-size:1.15rem}
+.gs{font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:99px;border:1px solid var(--teal);color:var(--teal)}
+.gw{color:var(--clay);font-weight:600;font-size:.88rem;margin:4px 0 8px}
+.gi p:last-child{color:var(--muted);max-width:46em}
+@media (max-width:640px){.soon a{grid-template-columns:1fr;gap:2px}}
 .post{display:grid;grid-template-columns:160px 1fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line)}
 .post time{color:var(--clay);font-weight:600;font-size:.95rem;padding-top:4px}
 .post h3{margin-bottom:8px}
@@ -526,6 +550,17 @@ footer a.fb.ig{color:#C13584}
         <div><h3>Business licenses</h3><p>Applications for new licenses, amendments as your activities change, and annual renewals, so your license is never allowed to lapse.</p></div>
         <div><h3>Tax and SZV registration</h3><p>Crib number and tax registration, and employer registration with SZV, leaving you ready to trade, invoice and hire.</p></div>
       </div>
+      <div class="bring" id="what-to-bring-company">
+        <h2>What to bring</h2>
+        <p class="muted">The main documents, from our office checklists. Every case is different, so call, WhatsApp or book an appointment and we confirm exactly what yours needs.</p>
+        <p><a class="btn btn-main" href="/contact/#appointment">Schedule your appointment today</a></p>
+        <details><summary>Business &amp; Directors License - Foreign Citizen residing locally</summary>
+          <h4>Documents required for Business &amp; Directors License (Foreign Citizen with Local Address)</h4><ol><li><b>Application Letter addressed to the Minister of TEATT.</b></li><li><b>A copy of the Deed of Incorporation.</b></li><li><b>A copy of the business’ crib number declaration from the Inspectorate of Taxes.</b></li><li><b>A copy of the Chamber of Commerce Excerpt.</b></li><li><b>A valid colored copy of the director’s passport.</b></li><li><b>A valid colored copy of the director’s detailed Census Registration.</b></li><li><b>Proof of business address via one of the following.</b></li><li><b>A valid colored copy of your residence permit, or</b></li><li><b>A copy of the application for the renewal of the director&#x27;s residency permit from the Ministry of Justice (only if the residence permit of the director has expired for longer than three (3) months)</b></li><li><b>A valid colored copy of the police record of the director(s) of foreign nationality (no older than 6 months).</b></li><li><b>A copy of the diplomas/certificates of director(s) (only needed in cases of specific expertise)</b></li><li><b>Processing fee of XCG 150.00 – Economic Affairs.</b></li></ol>
+        </details>
+        <details><summary>Sole Proprietorship</summary>
+          <h4>Documents required for Sole Proprietorship (Netherland Citizen residing locally)</h4><ol><li><b>Application Letter addressed to the Minister of TEATT.</b></li><li><b>A valid colored copy of your detailed census registration. (no older than six (6) months)</b></li><li><b>A valid colored copy of your passport.</b></li><li><b>A copy of your “Verklaring van rechtswege toegelaten tot verblijf...”</b></li><li><b>Proof of business address via one of the following.</b></li><li><b>A copy of the business Crib number declaration from the Inspectorate of Taxes.</b></li><li><b>A copy of your diplomas/certificates (only required in cases with a specific expertise).</b></li><li><b>Processing fee of XCG 150.00 – Economic Affairs.</b></li></ol>
+        </details>
+      </div>
       <div class="others"><a href="/work-residence-permits-sint-maarten/">Labor &amp; Immigration</a><a href="/building-permits-government-liaison/">Permits &amp; Government Liaison</a><a href="/bookkeeping-payroll-tax-filing/">Financial Administration</a><a href="/business-plans-tenders/">Business Plans &amp; Tenders</a></div>
     </div>
     <aside class="aside">
@@ -555,6 +590,28 @@ footer a.fb.ig{color:#C13584}
         <div><h3>Renewals and deadlines</h3><p>Expiry dates are monitored and renewals submitted in good time, so your staff continue working without interruption.</p></div>
         <div><h3>Objections and appeals</h3><p>When a permit is refused, revoked or not renewed, we prepare and file the objection within the statutory deadline and support any subsequent appeal.</p></div>
         <div><h3>Representation</h3><p>Under your written authorization, we act on your behalf before the relevant offices, sparing you the attendance.</p></div>
+      </div>
+      <div class="bring" id="what-to-bring">
+        <h2>What to bring</h2>
+        <p class="muted">The main documents, from our office checklists. Every case is different, so call, WhatsApp or book an appointment and we confirm exactly what yours needs.</p>
+        <p><a class="btn btn-main" href="/contact/#appointment">Schedule your appointment today</a></p>
+        <details><summary>First Time Employment &amp; Residence Permit</summary>
+          <h4>Documents Required for Work Permit</h4><ol><li><b>Original Reference Letters (must show over 3 years working experience)</b></li><li><b>Original School Diplomas/Educational Certificates</b></li><li><b>Copy of full passport. (All pages)</b></li><li><b>One (1) Dutch Passport sized picture.</b></li><li><b>Copy of labor agreement/contract</b></li><li><b>Current abroad home address.</b></li></ol>
+          <h4>Documents Required for Residency Permit</h4><ol><li><b>One (1) Dutch sized passport picture</b></li><li><b>Copy full passport.</b></li><li><b>Birth Certificate with Apostille.</b></li><li><b>Marriage Certificate with Apostille.</b></li><li><b>Police Record.</b></li></ol>
+          <h4>Documents needed from employer</h4><ol><li><b>Chamber of Commerce excerpt</b></li><li><b>Valid Proof of Labor Registration</b></li><li><b>Copy passport Director</b></li><li><b>Company&#x27;s monthly Wage Tax Declaration</b></li><li><b>Copies of payment receipts associated to AVBZ, LB, ToT, AOV/AWW &amp; ZV/OV declarations for the most recent tax period.</b></li></ol>
+        </details>
+        <details><summary>Renewal Employment &amp; Residence Permit</summary>
+          <h4>Documents Required For Employment Permit Renewal</h4><ol><li><b>Copy of full Passport applicant.</b></li><li><b>Copy of detailed census registration form.</b></li><li><b>Copy of current employment permit.</b></li><li><b>Copy of current residency permit.</b></li><li><b>Proof of medical coverage</b></li><li><b>Copy of labor agreement/contract</b></li><li><b>Last 3 month’s pay slips.</b></li></ol>
+          <h4>Documents Required For Residency Permit Renewal</h4><ol><li><b>Copy of Passport of applicant.</b></li><li><b>Copy of current residency permit.</b></li><li><b>Job letter directed to the Immigration Department.</b></li><li><b>Proof of receipt of salary payment for last 3 months.</b></li><li><b>1 Dutch sized passport picture.</b></li></ol>
+        </details>
+        <details><summary>First time RPP Permit</summary>
+          <h4>Documents Required For Employment Permit</h4><ol><li><b>Copy Passport applicant.</b></li><li><b>Copy of educational certificates and references.</b></li><li><b>Proof of medical coverage</b></li><li><b>Copy of labor agreement/contract</b></li><li><b>One (1) passport sized picture.</b></li><li><b>Copy of exemption letter</b></li></ol>
+          <h4>Documents Required For Residency Permit</h4><ol><li><b>Copy of Full Passport of applicant.</b></li><li><b>Birth certificate and apostille</b></li><li><b>Declaration of conduct issued in home country of applicant</b></li><li><b>Copy of labor agreement/contract</b></li><li><b>Job letter directed to the Immigration &amp; Naturalization Department.</b></li><li><b>1 Dutch sized passport picture.</b></li></ol>
+        </details>
+        <details><summary>Renewal RPP Permit</summary>
+          <h4>Documents Required For Employment Permit Renewal</h4><ol><li><b>Copy Passport applicant.</b></li><li><b>Copy of detailed census registration form</b></li><li><b>Copy of current residency permit.</b></li><li><b>Copy of current employment permit</b></li><li><b>Proof of medical coverage</b></li><li><b>Copy of labor agreement/contract</b></li><li><b>Copy crib number declaration</b></li><li><b>One (1) passport sized picture.</b></li><li><b>Last 3 month&#x27;s pay slips</b></li></ol>
+          <h4>Documents Required For Residency Permit Renewal</h4><ol><li><b>Copy of Passport of applicant.</b></li><li><b>Detailed census registration form.</b></li><li><b>Declaration of conduct</b></li><li><b>Copy of labor agreement/contract</b></li><li><b>Copy of current residency permit.</b></li><li><b>Job letter directed to the Immigration &amp; Naturalization Department.</b></li><li><b>Last 3 month&#x27;s pay slips</b></li><li><b>Proof of receipt of salary payment for last 3 months.</b></li><li><b>Copy income declaration 2025.</b></li><li><b>1 Dutch sized passport picture.</b></li></ol>
+        </details>
       </div>
       <div class="others"><a href="/company-formation-sint-maarten/">Corporate Services</a><a href="/building-permits-government-liaison/">Permits &amp; Government Liaison</a><a href="/bookkeeping-payroll-tax-filing/">Financial Administration</a><a href="/business-plans-tenders/">Business Plans &amp; Tenders</a></div>
     </div>
@@ -613,6 +670,14 @@ footer a.fb.ig{color:#C13584}
         <div><h3>Monthly tax filings</h3><p>Wage tax, turnover tax (TOT) and premium returns, prepared and filed on schedule every month, so penalties are avoided.</p></div>
         <div><h3>Annual tax returns</h3><p>Profit tax and income tax returns, and income statements, prepared and filed ahead of the deadline.</p></div>
         <div><h3>Reconciliations and restoration</h3><p>Records in arrears are brought fully up to date and reconciled with the bank.</p></div>
+      </div>
+      <div class="bring" id="what-to-bring-financial">
+        <h2>What to bring</h2>
+        <p class="muted">The main documents, from our office checklists. Every case is different, so call, WhatsApp or book an appointment and we confirm exactly what yours needs.</p>
+        <p><a class="btn btn-main" href="/contact/#appointment">Schedule your appointment today</a></p>
+        <details><summary>SZV First Time Company Registration</summary>
+          <h4>The original documents required for SZV registration</h4><ol><li><b>Chamber of Commerce Excerpt</b></li><li><b>Crib-Number declaration of the company</b></li><li><b>Detailed census registration form of the director (if residing locally)</b></li><li><b>Shareholder’s registry of the company</b></li><li><b>Notarial deed of the articles of incorporation of the company</b></li><li><b>Copy of a valid Sint Maarten ID or passport of the director(s) and/or management board members</b></li><li><b>Mutation form filled out and signed by director.</b></li><li><b>Signed SZV authorization</b></li></ol>
+        </details>
       </div>
       <div class="others"><a href="/company-formation-sint-maarten/">Corporate Services</a><a href="/work-residence-permits-sint-maarten/">Labor &amp; Immigration</a><a href="/building-permits-government-liaison/">Permits &amp; Government Liaison</a><a href="/business-plans-tenders/">Business Plans &amp; Tenders</a></div>
     </div>
@@ -740,9 +805,11 @@ footer a.fb.ig{color:#C13584}
       <span class="kicker">News &amp; Events</span>
       <h1 style="font-size:clamp(2.3rem,5vw,3.4rem)">News &amp; Events</h1>
       <p class="lead" style="margin-top:18px">Events, government notices, deadlines and developments from our office, published as they occur.</p>
+      <div class="soon" id="soon" hidden><h2>Coming up</h2><div id="soonlist"></div></div>
       <div class="filters" id="filters"></div>
       <div class="feed" id="posts"></div>
       <div style="margin-top:30px;text-align:center"><button class="btn btn-line" id="more" hidden>Show older posts</button></div>
+      <div class="govch" id="govch"><h2>Upcoming government changes</h2><p class="muted">What the Government has announced or proposed, and where it stands. Checked on the date shown.</p><div id="govlist"></div></div>
     </div>
   </section>
 </div>
@@ -931,11 +998,17 @@ footer a.fb.ig{color:#C13584}
 const UPLOAD_LINK = "";
 
 const POSTS = [
-  { date:"2026-10-19", tag:"Deadline", title:"October's turnover tax is due Monday, November 16",
+  { date:"2026-11-02", tag:"Deadline", due:"2026-11-14", dueText:"before November 15", title:"Renting rooms to visitors? October's room tax is due before November 15",
+    text:"If you rent out a hotel room, guesthouse, apartment, villa or any other place to stay to guests who are not registered in Sint Maarten's population register, you owe room tax (logeergastenbelasting) of 5% of the room price.\n\nThe room tax you received in October is paid to the Receiver before November 15, together with the signed monthly form. If it is not paid, or paid late, the Tax Administration issues an assessment that must be paid at once, with 10% added.\n\nOnce a year you also file a room tax return, before February 1 of the following year. If you did not receive a return form, you must ask for one before January 15.\n\nNeed help with your room tax? Contact our office at +1 721-580-0054 or info@vairconsultants.com." },
+  { date:"2026-11-04", tag:"Government notice", title:"Recovery projects are moving to construction: is your company ready to work on them?",
+    text:"Several projects financed through the Sint Maarten Trust Fund and run by the National Recovery Program Bureau (NRPB) are moving toward construction: the upgrade, rehabilitation and partial closure of the Philipsburg landfill; the rehabilitation of the A.T. Illidge wastewater treatment plant and the extension of the sewer network to about 1,450 new household connections, with construction expected to start before the end of 2026; and the new mental health facility in St. Johns, with construction expected to start before the end of 2026.\n\nMain contractors, subcontractors and suppliers on projects like these are asked for their papers: a registered company, business license, tax and premium filings in order, and work and residence permits for any staff from abroad. NRPB tenders are published on its procurement portal, nrpbsxm.bonfirehub.com, and local firms may bid alone or together with other local or foreign companies.\n\nOur office handles company formation, business licenses, work and residence permits, payroll, and tax filing. Contact us at +1 721-580-0054 or info@vairconsultants.com." },
+  { date:"2026-11-06", tag:"Tip", title:"Business licenses: is yours current and paid?",
+    text:"The Government's 2027 budget projects business license revenue rising from 7 million to 12 million guilders. The Minister of Finance explained that the figure reflects amounts invoiced. Businesses should therefore expect their license invoices to be followed up.\n\nNow is a good time to check that your business license matches what your company does, that its details are up to date, and that the fees are paid. Our office can check your license for you.\n\nContact us at +1 721-580-0054 or info@vairconsultants.com." },
+  { date:"2026-10-19", tag:"Deadline", due:"2026-11-16", dueText:"Monday, November 16", title:"October's turnover tax is due Monday, November 16",
     text:"October's TOT return and payment are due by Monday, November 16. The 15-day term ends on Sunday, November 15, and a deadline that ends on a weekend moves to the next working day.\n\nWednesday, November 11, is St. Maarten Day, a public holiday, so plan any visits to the Tax Office counters around it.\n\nSource: General National Ordinance on Taxes (ALL), art. 8 and 14; national ordinance on time limits ending on Saturdays, Sundays and public holidays, art. 1 and 3." },
   { date:"2026-10-21", tag:"Tip", title:"Is your Chamber of Commerce fee for 2026 paid?",
     text:"The Chamber of Commerce (COCI) asks every registered business, including new and dormant companies, to keep its registration up to date and pay its annual fee on time.\n\nLast year COCI set November 1 as the date to pay and update, to avoid being placed on its deregistration list. Now is a good time to check that your company's 2026 fee is paid.\n\nRegistrations are updated through the COCI portal. Fees can be paid at COCI or by bank transfer, quoting your COCI registration number.\n\nSource: COCI, Annual Fee Notice of January 14, 2026, and Notification of Deregistration of Registrants of October 20, 2025." },
-  { date:"2026-10-26", tag:"Deadline", title:"October payroll: wage tax and premiums are due Monday, November 16",
+  { date:"2026-10-26", tag:"Deadline", due:"2026-11-16", dueText:"Monday, November 16", title:"October payroll: wage tax and premiums are due Monday, November 16",
     text:"Employers withhold wage tax and social premiums from every paycheck and pay them over each month. For wages paid in October, the return and the payment are due by Monday, November 16. The 15-day term ends on Sunday, November 15, so it moves to the next working day.\n\nWage tax is filed and paid together at the Receiver. A return is still due for a month in which no tax was withheld. The AVBZ premium is also paid to the Receiver.\n\nThe AOV, AWW, ZV and OV premiums are declared and paid to SZV within the same 15 days.\n\nLate returns and late payments are fined, for wage tax and for premiums alike. If your payroll for October isn't ready yet, call or WhatsApp +1 721-580-0054.\n\nSource: General National Ordinance on Taxes (ALL), art. 8 and 14; Wage Tax Ordinance 1976, art. 10 and 11; AOV ordinance, art. 29A; AWW ordinance, art. 32A; AVBZ ordinance, art. 24; ZV ordinance, art. 8B; OV ordinance, art. 8A (Grant Thornton, Fiscale Wetgeving 2025); national ordinance on time limits ending on Saturdays, Sundays and public holidays." },
   { date:"2026-10-28", tag:"Tip", title:"Got a tax assessment? The date on it sets your deadline",
     text:"Every assessment from the Tax Office is dated, and your time to pay counts from that date, not from the day the letter reaches you. Check it as soon as the envelope is open.\n\nA regular assessment is paid within two months of its date, unless the tax law sets a different term.\n\nA provisional assessment dated before November 1 can be paid in equal monthly installments, one falling due on the last day of each month left in the year. One dated in October, for example, splits into two: end of November and end of December. A provisional assessment dated on or after November 1 is paid within the normal two months.\n\nAn additional assessment (naheffingsaanslag) is due one month after its date.\n\nIf an assessment looks wrong, don't wait for the deadline to call. Bring it to us with your filing for that period.\n\nSource: General National Ordinance on Taxes (ALL), art. 5 (Grant Thornton, Fiscale Wetgeving 2025)." },
@@ -957,6 +1030,18 @@ const POSTS = [
     text:"Put your company name and what the document is in the file name, for example “Harbor Supplies – bank statement August”. It lets us file everything in the right place the same day." },
   { date:"2026-09-24", tag:"Tip", title:"Tell us when your details change",
     text:"A new address, director, bank account or employee affects your filings. Send us the change as soon as it happens so nothing is filed with old information." }
+];
+
+/* UPCOMING GOVERNMENT CHANGES: one line each, newest check first. status: Announced, Planned, Proposed, In progress or In force. */
+const GOV = [
+  { title:"Online filing and faster processing at the Tax Administration", when:"From January 2027", status:"Announced", checked:"2026-10-25",
+    text:"The Tax Administration plans online filing of 2026 income tax returns, automated processing of simple returns, expanded filing services for businesses, and filing and payment dashboards. Taxpayers should see the first improvements from January 2027, with shorter processing times for income tax expected in the second half of 2027. Tax filing for individuals and businesses falls within our services." },
+  { title:"Visitor levy", when:"Planned for January 2027", status:"Planned", checked:"2026-10-25",
+    text:"The Government aims to introduce a visitor levy from January 2027, once the remaining legislative and operational steps are finished. The draft law is being finalized for the Council of Advice. It is not yet law." },
+  { title:"Gifts to charities fully deductible", when:"No date set", status:"Proposed", checked:"2026-10-25",
+    text:"A motion in Parliament asks to make gifts to charities fully deductible under the income tax and profit tax laws, with no minimum. The Minister of Finance said she supports it." },
+  { title:"The 2027 national budget", when:"Target: before the end of 2026", status:"In progress", checked:"2026-10-25",
+    text:"The Council of Ministers approved the draft 2027 budget on June 25, 2026. It goes to the Council of Advice and then Parliament, with the aim of an approved budget before the end of the year." }
 ];
 
 const SERVICES = [
@@ -1012,6 +1097,14 @@ function drawPosts(){
 document.getElementById("filters").addEventListener("click", e => { const b=e.target.closest("[data-f]"); if(b){filter=b.dataset.f; shown=9; drawPosts();} });
 document.getElementById("more").addEventListener("click", () => { shown += 9; drawPosts(); });
 drawPosts();
+/* coming up: deadlines from Deadline posts already shown, until the day has passed */
+(function(){
+  const up = sorted.filter(p=>p.due && p.due >= TODAY).sort((a,b)=>a.due.localeCompare(b.due)).slice(0,4);
+  if(!up.length) return;
+  document.getElementById("soonlist").innerHTML = up.map(p=>`<a href="/news/${slug(p)}/"><time datetime="${p.due}">${esc(p.dueText||fmt(p.due))}</time><span>${esc(p.title)}</span></a>`).join("");
+  document.getElementById("soon").hidden = false;
+})();
+document.getElementById("govlist").innerHTML = GOV.map(g=>`<div class="gi"><div class="gh"><h3>${esc(g.title)}</h3><span class="gs">${esc(g.status)}</span></div><p class="gw">${esc(g.when)} · checked ${fmt(g.checked)}</p><p>${esc(g.text)}</p></div>`).join("");
 document.getElementById("latest").innerHTML = sorted.slice(0,3).map(p=>card(p,false)).join("");
 function drawArticle(id){
   const p = sorted.find(x=>slug(x)===id);
