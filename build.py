@@ -20,7 +20,7 @@ table = json.dumps([{k: x[k] for k in ("r", "p", "t", "d", "from") if k in x} fo
 src = re.sub(r'(<script id="routes" type="application/json">).*?(</script>)',
              lambda m: m.group(1) + table.replace("</", "<\\/") + m.group(2), src, count=1, flags=re.S)
 
-def set_head(page, title, desc, url, og_type="website"):
+def set_head(page, title, desc, url, og_type="website", image=None):
     a = lambda s: html.escape(s, quote=True)
     page = re.sub(r"<title>.*?</title>", "<title>" + html.escape(title) + "</title>", page, count=1, flags=re.S)
     page = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="' + a(desc) + '">', page, count=1)
@@ -29,6 +29,8 @@ def set_head(page, title, desc, url, og_type="website"):
     page = re.sub(r'<meta property="og:description" content="[^"]*">', '<meta property="og:description" content="' + a(desc) + '">', page, count=1)
     page = re.sub(r'<meta property="og:url" content="[^"]*">', '<meta property="og:url" content="' + a(url) + '">', page, count=1)
     page = re.sub(r'<meta property="og:type" content="[^"]*">', '<meta property="og:type" content="' + og_type + '">', page, count=1)
+    if image:   # a news post with its own picture shows that picture when the link is shared (WhatsApp, Facebook)
+        page = re.sub(r'<meta property="og:image" content="[^"]*">', '<meta property="og:image" content="' + a(SITE + image if image.startswith("/") else image) + '">', page, count=1)
     return page
 
 def show(page, route):
@@ -66,7 +68,8 @@ for m in re.finditer(r'date:\s*"(\d{4}-\d{2}-\d{2})".*?title:\s*"((?:[^"\\]|\\.)
     slug = m.group(4) or (date + "-" + re.sub(r"^-|-$", "", re.sub(r"[^a-z0-9]+", "-", title.lower())))
     desc = text.split("\n\n")[0]
     desc = desc if len(desc) <= 160 else desc[:157].rsplit(" ", 1)[0] + "…"
-    page = set_head(src, title + " | V.A.I.R Consultants", desc, SITE + "/news/" + slug + "/", "article")
+    img = re.search(r'image:\s*"([^"]+)"', m.group(0))
+    page = set_head(src, title + " | V.A.I.R Consultants", desc, SITE + "/news/" + slug + "/", "article", img.group(1) if img else None)
     write("/news/" + slug + "/", show(page, "news/post"))
     urls.append(SITE + "/news/" + slug + "/")
 
