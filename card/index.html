@@ -33,7 +33,8 @@ h1{font:700 1.6rem/1.15 var(--display);color:var(--plum);margin:0;text-wrap:bala
 .rows{display:grid;gap:0;border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:5.6rem 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
 .row small{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
-.row b{font-weight:600;min-width:0;overflow-wrap:anywhere;user-select:all}
+.row b{font-weight:600;min-width:0;overflow-wrap:normal;user-select:all}
+.row b.nw{white-space:nowrap;font-size:clamp(.82rem,3.9vw,1rem)}
 button{font:600 .8rem var(--body);color:var(--teal);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
 button:focus-visible,a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 h2{font:600 1.05rem var(--display);color:var(--plum);margin:0}
@@ -55,10 +56,10 @@ li a:hover{color:var(--teal)}
   <div class="qr"><img src="/card/qr.png" alt="QR code that opens vairconsultants.com/contact"></div>
   <p class="scan">Point your phone camera at the code to open our website.</p>
   <section class="rows" aria-label="Contact">
-    <div class="row"><small>Call or WhatsApp</small><b>+1 721-580-0054</b><button data-copy="+1 721-580-0054">Copy</button></div>
-    <div class="row"><small>Office landline</small><b>+1 721-542-0058</b><button data-copy="+1 721-542-0058">Copy</button></div>
-    <div class="row"><small>Email</small><b>info@vairconsultants.com</b><button data-copy="info@vairconsultants.com">Copy</button></div>
-    <div class="row"><small>Website</small><b>vairconsultants.com</b><button data-copy="https://vairconsultants.com">Copy</button></div>
+    <div class="row"><small>Call or WhatsApp</small><b class="nw">+1 721-580-0054</b><button data-copy="+1 721-580-0054">Copy</button></div>
+    <div class="row"><small>Office landline</small><b class="nw">+1 721-542-0058</b><button data-copy="+1 721-542-0058">Copy</button></div>
+    <div class="row"><small>Email</small><b class="nw">info@vairconsultants.com</b><button data-copy="info@vairconsultants.com">Copy</button></div>
+    <div class="row"><small>Website</small><b class="nw">vairconsultants.com</b><button data-copy="https://vairconsultants.com">Copy</button></div>
     <div class="row"><small>Office</small><b>The Plaza Building, Unit 1, W. G. Buncamper Road #4, Philipsburg</b><span></span></div>
   </section>
   <section>
