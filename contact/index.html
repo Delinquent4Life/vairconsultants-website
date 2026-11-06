@@ -1246,7 +1246,7 @@ route();
    No word split across two lines (Bernard Oct 2026): hyphenated words, phone numbers and emails are kept whole.
    Both also run on text drawn after the page loads (news, What to bring, posts) - VAIR Website 5 Nov 2026 */
 (function(){try{
-  var MINW=300, MINLEN=60, MINCPL=40; /* MINCPL: on phones (under 600 px) text with fewer than ~40 characters per line stays left - 31 Oct 2026 */
+  var MINW=300, MINLEN=60, MINCPL=38; /* MINCPL: on phones (under 600 px) only large lead text (fewer than ~38 characters per line) stays left; body text stays justified - 31 Oct, tuned 6 Nov 2026 */
   var KEEP=/\+1[\s\u00a0]?\(?721\)?[\s\u00a0-]?\d{3}-\d{4}|[\w.+-]+@[\w-]+(?:\.[\w-]+)+|[A-Za-z0-9\u00c0-\u024f]+(?:[-\u2011\u2013\/][A-Za-z0-9\u00c0-\u024f]+)+/g;
   var SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,INPUT:1,SELECT:1,OPTION:1,TITLE:1,svg:1,SVG:1,NOSCRIPT:1};
   function whole(root){
