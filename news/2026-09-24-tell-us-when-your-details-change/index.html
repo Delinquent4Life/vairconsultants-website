@@ -999,6 +999,12 @@ footer a.fb.ig{color:#C13584}
 const UPLOAD_LINK = "";
 
 const POSTS = [
+  { date:"2026-11-09", tag:"Tip", title:"Got a reminder from the Receiver? You have 14 days",
+    text:"When an income tax, profit tax or land tax assessment is not paid by its due date, the Receiver sends a reminder (aanmaning). The reminder gives you fourteen days to pay. If you do not pay or agree a payment arrangement in that time, the Receiver moves to forced collection with a writ (dwangschrift), and the costs of collection are added to what you owe.\n\nOnce the last installment of an assessment has fallen due, interest of one half percent is charged for every month that has started. When you pay, the money goes first to the collection costs, and only then to the oldest open assessment.\n\nFiling an objection does not stop the payment. The tax is still due while the objection is being decided.\n\nIf special circumstances beyond your control mean you cannot pay on time, you can ask the Receiver for a deferral or easier payment terms. An arrangement is given in writing. For profit tax, a deferral is never longer than four months.\n\nReceived a reminder or an assessment you do not agree with? Contact our office at +1 721-580-0054 or info@vairconsultants.com." },
+  { date:"2026-11-11", tag:"Office news", title:"Happy St. Maarten Day from VAIR Consultants", image:"/img/st-maarten-day-2026.jpg",
+    text:"Happy St. Maarten Day! Semper progrediens, always progressing. One island, two nations, one people.\n\nFrom all of us at V.A.I.R Consultants, we celebrate the island we call home and its people. Happy St. Maarten Day from our office to yours.\n\nWhatsApp +1 721-580-0054 or email info@vairconsultants.com." },
+  { date:"2026-11-13", tag:"Tip", title:"Disagree with a tax assessment? You have two months to object",
+    text:"If you think an assessment from the Tax Office is wrong, you can file an objection (bezwaarschrift) with the Inspector. It must be in writing, give your reasons, and reach the Inspector within two months of the date printed on the assessment. The same two months apply to a decision of the Inspector that can be objected to, counted from the date of the copy you were sent.\n\nThe Inspector notes the date your objection was received and sends you a receipt with that date. Keep it. If you ask for it in your objection, you are heard before the Inspector decides.\n\nThe Inspector should decide within nine months. If the decision goes against you, you can appeal to the Court within two months of the date of the decision.\n\nFiling an objection does not stop the payment. The assessment is still paid on time while the objection is being decided.\n\nReceived an assessment you do not agree with? Bring it to us early, with your filing for that period. Contact our office at +1 721-580-0054 or info@vairconsultants.com." },
   { date:"2026-11-02", tag:"Deadline", due:"2026-11-14", dueText:"before November 15", title:"Renting rooms to visitors? October's room tax is due before November 15",
     text:"If you rent out a hotel room, guesthouse, apartment, villa or any other place to stay to guests who are not registered in Sint Maarten's population register, you owe room tax (logeergastenbelasting) of 5% of the room price.\n\nThe room tax you received in October is paid to the Receiver before November 15, together with the signed monthly form. If it is not paid, or paid late, the Tax Administration issues an assessment that must be paid at once, with 10% added.\n\nOnce a year you also file a room tax return, before February 1 of the following year. If you did not receive a return form, you must ask for one before January 15.\n\nNeed help with your room tax? Contact our office at +1 721-580-0054 or info@vairconsultants.com." },
   { date:"2026-11-04", tag:"Government notice", title:"Recovery projects are moving to construction: is your company ready to work on them?",
@@ -1240,7 +1246,7 @@ route();
    No word split across two lines (Bernard Oct 2026): hyphenated words, phone numbers and emails are kept whole.
    Both also run on text drawn after the page loads (news, What to bring, posts) - VAIR Website 5 Nov 2026 */
 (function(){try{
-  var MINW=300, MINLEN=60;
+  var MINW=300, MINLEN=60, MINCPL=40; /* MINCPL: on phones (under 600 px) text with fewer than ~40 characters per line stays left - 31 Oct 2026 */
   var KEEP=/\+1[\s\u00a0]?\(?721\)?[\s\u00a0-]?\d{3}-\d{4}|[\w.+-]+@[\w-]+(?:\.[\w-]+)+|[A-Za-z0-9\u00c0-\u024f]+(?:[-\u2011\u2013\/][A-Za-z0-9\u00c0-\u024f]+)+/g;
   var SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,INPUT:1,SELECT:1,OPTION:1,TITLE:1,svg:1,SVG:1,NOSCRIPT:1};
   function whole(root){
@@ -1254,7 +1260,8 @@ route();
       if(i<d.length)f.appendChild(document.createTextNode(d.slice(i)));t.parentNode.replaceChild(f,t);});
   }
   function check(el){var w=el.clientWidth; if(!w) return; var t=(el.textContent||'').trim().length;
-    el.classList.toggle('nojust', w<MINW || t<MINLEN);}
+    var fs=parseFloat(getComputedStyle(el).fontSize)||16, cpl=w/(fs*0.5);
+    el.classList.toggle('nojust', w<MINW || t<MINLEN || (innerWidth<600 && cpl<MINCPL));}
   var ro='ResizeObserver' in window ? new ResizeObserver(function(es){es.forEach(function(e){check(e.target)})}) : null;
   function watch(root){var els=root.querySelectorAll?root.querySelectorAll('p,li,dd,blockquote'):[];
     if(root.matches&&root.matches('p,li,dd,blockquote'))els=[root].concat([].slice.call(els));
